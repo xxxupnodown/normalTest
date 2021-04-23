@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>购物车</title>
+	<style type="text/css">
+		body{
+			padding-left:300px;
+			padding-top:20px;
+			margin:0;
+		}
+		input[type="checkbox"]{
+			cursor: pointer;
+		}
+		.backDrop{
+
+		}
+			.backDrop .titleleft{
+				position: relative;
+				top:3px;
+				height: 40px;
+				width: 150px;
+				text-align: center;
+				line-height: 50px;
+				font-size: 20px;
+				color: orangered;
+				border-bottom: 3px solid orangered;
+				padding: 15px;
+				z-index: 999;
+			}
+			.backDrop .titleright{
+				top:60px;
+				position: absolute;
+				right:315px;
+				padding-bottom: 10px;
+				width:300px;
+			}
+				.backDrop .titleright .checkshop{
+					position: absolute;
+					left : 120px;
+				}
+				.backDrop .titleright div{
+					position: absolute;
+					top :-3px;
+					left: 220px;
+					width:50px;
+					height:30px;
+					background-color: gray;
+					line-height: 30px;
+					text-align: center;
+					color: #fff;
+					font-size: 13px;
+					border-radius: 8px;
+				}
+				.backDrop .titleright div:hover{
+					cursor: pointer;
+				}
+			.backDrop .titleorder{
+				position: relative;
+				height:35px;
+				width:1050px;
+				padding-left:10px;
+				text-align: center;
+				line-height: 35px;
+				border-top:3px solid gainsboro;
+			}
+				.backDrop .titleorder span{
+					font-size: 14px;
+					color:gray;
+				}
+				.backDrop .titleorder span:nth-child(3){
+					position: absolute;
+					left:170px;
+				}
+				.backDrop .titleorder span:nth-child(4){
+					margin-left:550px;
+				}
+				.backDrop .titleorder span:nth-child(5){
+					margin-left:85px;
+				}
+				.backDrop .titleorder span:nth-child(6){
+					margin-left:95px;
+				}
+				.backDrop .titleorder span:nth-child(7){
+					margin-left:90px;
+				}
+				.backDrop .titleorder span:nth-child(2){
+					position: absolute;
+					left:40px;
+				}
+				.backDrop .titleorder input{
+					position: absolute;
+					left:20px;
+					top:8px;
+				}
+			.backDrop ul{
+				list-style: none;
+				padding: 0;
+			}
+				.backDrop ul li {
+					margin-bottom: 20px;
+				}
+					.backDrop ul li .content{
+						width:1020px;
+						height:110px;
+						padding:20px;
+						border:1px solid gainsboro;
+						background-color: whitesmoke;
+						position: relative;
+					}
+						.backDrop ul li .content .ordername{
+							width:150px;
+							height:110px;
+						}
+							.backDrop ul li .content .ordername input{
+								position: relative;
+								top:-88px;
+							}
+							.backDrop ul li .content .ordername img{
+								width:100px;
+								height:100px;
+								margin-left: 5px;
+							}
+						.backDrop ul li .content .orderdetail {
+							width:440px;
+							height:110px;
+							position: absolute;
+							top:20px;
+							left: 165px;
+						}
+							.backDrop ul li .content .orderdetail .orderdetailname{
+								width:240px;
+								height:110px;
+								position: absolute;
+								left:10px;
+								font-size: 13px;
+							}
+								.backDrop ul li .content .orderdetail .orderdetailname a:hover{
+									color:orangered;
+									text-decoration:underline;
+									cursor: pointer;
+								}
+							.backDrop ul li .content .orderdetail .orderdetailCtent{
+								width:170px;
+								height:110px;
+								position: absolute;
+								left:260px;
+								color:gray;
+								font-size: 13px;
+							}
+								.backDrop ul li .content .orderdetail .orderdetailCtent p{
+									margin: 0;
+									padding:0;
+								}
+						.backDrop ul li .content .orderprice{
+							position: absolute;
+							left:450px;
+							height:110px;
+							width:60px;
+						}
+							.backDrop ul li .content .orderprice p:nth-child(1){
+								font-size: 12px;
+								color:gray;
+								text-decoration:line-through;
+								padding:0;
+								margin:0;
+							}
+							.backDrop ul li .content .orderprice p:nth-child(2){
+								font-size: 12px;
+								padding:0;
+								margin:0;
+							}
+						.backDrop ul li .content .ordernum{
+							position: absolute;
+							left:510px;
+							height:110px;
+							width:70px;
+						}
+							.backDrop ul li .content .ordernum input {
+								width:20px;
+								left: 56px;
+								position: absolute;
+								top:10px;
+								text-align: center;
+							}
+							.backDrop ul li .content .ordernum span:nth-child(1) {
+								position: absolute;
+								width:20px;
+								margin-left: 34px;
+								margin-top:30px;
+								top:-20px;
+								background-color: gray;
+								text-align: center;
+								height:20px;
+								width:22px;
+								line-height: 20px;
+							}
+							.backDrop ul li .content .ordernum span:nth-child(2) {
+								position: absolute;
+								width:20px;
+								margin-left: 84px;
+								margin-top:30px;
+								top:-20px;
+								background-color: gray;
+								text-align: center;
+								height:20px;
+								width:22px;
+								line-height: 20px;
+							}
+							.backDrop ul li .content .ordernum span:hover{
+								cursor: pointer;
+							}
+						.backDrop ul li .content .orderallprice{
+							position: absolute;
+							left:685px;
+							height:110px;
+							width:70px;
+						}
+							.backDrop ul li .content .orderallprice p {
+								font-size: 12px;
+								padding:0;
+								margin:0;
+								color:orangered;
+								margin-top:10px;
+								font-size: 14px;
+							}
+						.backDrop ul li .content .orderstutas{
+							position: absolute;
+							left:810px;
+							height:110px;
+							width:90px;
+						}
+							.backDrop ul li .content .orderstutas p {
+								margin: 0;
+								padding: 0;
+								margin-top:10px;
+								font-size: 14px;
+							}
+							.backDrop ul li .content .orderstutas p:hover{
+								color:orangered;
+								text-decoration:underline;
+								cursor: pointer;
+							}
+	</style>
+</head>
+<body>
+<div class="backDrop">
+	<div class="titleleft">
+		全部商品<span id="allnum"></span>
+	</div>
+	<div class="titleright">
+		<span>总金额：￥<span id ="allprice">0</span></span>
+		<span class="checkshop">已选商品：<span id="price"></span></span>
+		<div>结 算</div>
+	</div>
+	<div class="titleorder">
+		<input type="checkbox" /><span>全选</span>
+		<span>商品信息</span>
+		<span>单价</span>
+		<span>数量</span>
+		<span>金额</span>
+		<span>操作</span>
+	</div>
+	<ul>
+		<li>
+			<div class="content">
+				<div class="ordername">
+					<input type="checkbox" />
+					<img src="images/1.png" />
+				</div>
+				<div class="orderdetail">
+					<div class="orderdetailname">
+						<a herf="#">学生宿舍床上三件套单人上下铺套件卡通被套床单简约格子四件套夏
+						</a>
+					</div>
+					<div class="orderdetailCtent">
+						<p>颜色分类：魔幻冬天</p>
+						<span>适用床尺寸：1.2m床（被套150*200 床单160*230）三件套
+						</span>
+					</div>
+				<div class="orderprice">
+					<p>￥59.0</p>
+					<p><strong>￥<span  name = "oneprice">30.0</span></strong></p>
+				</div>
+				<div class="ordernum">
+					<span name="down">-</span>
+					<span name="up">+</span>
+					<input type="text" value="0" />
+				</div>
+				<div class="orderallprice">
+					<p>￥<span name ="shopprice">0</span></p>
+				</div>
+				<div class="orderstutas">
+					<p>删除</p>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="content">
+				<div class="ordername">
+					<input type="checkbox" />
+					<img src="images/2.png" />
+				</div>
+				<div class="orderdetail">
+					<div class="orderdetailname">
+						<a herf="#">秋冬加绒毛衣男韩版趣味港风情侣毛线衫vetiver复古针织衫
+						</a>
+					</div>
+					<div class="orderdetailCtent">
+						<p>颜色：蓝色[【常规款】6060H]</p>
+						<span>尺码：3XL
+						</span>
+					</div>
+				<div class="orderprice">
+					<p>￥118.00</p>
+					<p><strong>￥<span  name = "oneprice">98.0</span></strong></p>
+				</div>
+				<div class="ordernum">
+					<span name="down">-</span>
+					<span name="up">+</span>
+					<input type="text" value="0" />
+				</div>
+				<div class="orderallprice">
+					<p>￥<span name ="shopprice">0</span></p>
+				</div>
+				<div class="orderstutas">
+					<p>删除</p>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="content">
+				<div class="ordername">
+					<input type="checkbox" />
+					<img src="images/3.png" />
+				</div>
+				<div class="orderdetail">
+					<div class="orderdetailname">
+						<a herf="#">√ 青岛社 拼装模型 1/24 三菱 EVLOTION C-West CZ4A 蓝瑟 05897
+						</a>
+					</div>
+					<div class="orderdetailCtent">
+					</div>
+				<div class="orderprice">
+					<p></p>
+					<p><strong>￥<span  name = "oneprice">150.0</span></strong></p>
+				</div>
+				<div class="ordernum">
+					<span name="down">-</span>
+					<span name="up">+</span>
+					<input type="text" value="0" />
+				</div>
+				<div class="orderallprice">
+					<p>￥<span name ="shopprice">0</span></p>
+				</div>
+				<div class="orderstutas">
+					<p>删除</p>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="content">
+				<div class="ordername">
+					<input type="checkbox" />
+					<img src="images/4.png" />
+				</div>
+				<div class="orderdetail">
+					<div class="orderdetailname">
+						<a herf="#">Dior迪奥口红999哑光滋润888烈艳蓝金520正红色028易上色保湿
+						</a>
+					</div>
+					<div class="orderdetailCtent">
+						<p>颜色分类：999滋润</p>
+					</div>
+				<div class="orderprice">
+					<p></p>
+					<p><strong>￥<span  name = "oneprice">290.0</span></strong></p>
+				</div>
+				<div class="ordernum">
+					<span name="down">-</span>
+					<span name="up">+</span>
+					<input type="text" value="0" />
+				</div>
+				<div class="orderallprice">
+					<p>￥<span name ="shopprice">0</span></p>
+				</div>
+				<div class="orderstutas">
+					<p>删除</p>
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+<script type="text/javascript">
+	let priceUp = document.getElementsByName("up");
+	let priceDown = document.getElementsByName("down");
+	let orderNum = document.querySelectorAll("input[type='text']");
+	let shopNum = document.getElementById("price");
+	let shopPrice = document.getElementsByName("shopprice");
+	let checkBox = document.querySelectorAll("input[type='checkbox']");
+	let ChengepriceNum = document.querySelectorAll("span[name = 'oneprice'");
+	let allPrice = document.querySelector("#allprice");
+	let deleteBT = document.querySelectorAll(".orderstutas>p");
+	function chengeNum (){
+		let j = 0;
+		for (let i = 0 ; i < priceUp.length ; i++ ){
+			j = j + parseInt(orderNum[i].value);
+		}
+		shopNum.innerHTML = j ;
+		return j ;
+	}
+	window.onload = function (){
+		chengeNum();
+	};
+	for (let i in priceUp){
+		priceUp[i].onclick = function (){
+			let submit = document.querySelector(".titleright>div");
+			submit.style = "background-color:orangered";
+			orderNum[i].value = parseInt(orderNum[i].value) + 1;
+			shopPrice[i].innerHTML = parseInt(orderNum[i].value) * parseInt(ChengepriceNum[i].innerHTML);
+			let allpriceNUm = 0;
+			for (let j = 0 ; j < shopPrice.length ; j++ ){
+				allpriceNUm = allpriceNUm + parseInt(shopPrice[j].innerHTML);
+			}
+			allPrice.innerHTML = allpriceNUm;
+			chengeNum ();
+		}
+		priceDown[i].onclick = function (){
+			if (orderNum[i].value != "0"){
+				orderNum[i].value = parseInt(orderNum[i].value) - 1;
+			}
+			shopPrice[i].innerHTML = parseInt(orderNum[i].value) * parseInt(ChengepriceNum[i].innerHTML);
+			let allpriceNUm = 0;
+			for (let j = 0 ; j < shopPrice.length ; j++ ){
+				allpriceNUm = allpriceNUm + parseInt(shopPrice[j].innerHTML);
+			}
+			allPrice.innerHTML = allpriceNUm;
+			chengeNum ();
+			let submitstutas = 0;
+			for (let j = 0 ; j < orderNum.length ; j++){
+					if (orderNum[j].value == "0"){
+						submitstutas++
+					}
+				}
+			if (submitstutas=="4"){
+				let submit = document.querySelector(".titleright>div");
+				submit.style = "background-color:gray";
+			}
+		}
+	}
+	for (let i in checkBox){
+		checkBox[i].onclick = function (){
+			let content = document.querySelectorAll("ul>li>.content");
+			if (i==0){
+				if (checkBox[i].checked){
+					for (let j = 1 ; j < checkBox.length ; j++){
+						checkBox[j].checked = true;
+					}
+				}else{
+					for (let j = 1 ; j < checkBox.length ; j++){
+						checkBox[j].checked = false;
+					}
+				}
+			}
+			let chackAllBox = 0 ; 
+			for (let g = 1 ; g < checkBox.length ; g++){
+				if (checkBox[g].checked){
+					chackAllBox++;
+					content[g-1].style = "background-color:#FFF8E1";
+				}else{
+					content[g-1].style = "background-color:whitesmoke";
+				}
+				if (chackAllBox == 4){
+					checkBox[0].checked = true;
+				}else {
+					checkBox[0].checked = false;
+				}
+			}
+			chackAllBox = 0;
+		}
+	}
+	for (let i = 0 ; i < deleteBT.length ; i++){
+		deleteBT[i].onclick = function(){
+			let content = document.querySelectorAll("ul>li");
+			allPrice.innerHTML = parseInt(allPrice.innerHTML) - (parseInt(orderNum[i].value)*parseInt(ChengepriceNum[i].innerHTML));
+			shopNum.innerHTML = parseInt(chengeNum ()) - parseInt(orderNum[i].value) ; 
+			orderNum[i].value = 0;
+			shopPrice[i].innerHTML = 0;
+			content[i].style.display = "none";
+			let sbumitstutas = 0;
+			for (let j = 0 ; j < orderNum.length; j++){
+				if (orderNum[j].value == "0"){
+					sbumitstutas++;
+				}
+			}
+			if (sbumitstutas == orderNum.length){
+				let submit = document.querySelector(".titleright>div");	
+				submit.style = "background-color:gray"
+			}
+		}
+	}
+</script>
+</body>
+</html>

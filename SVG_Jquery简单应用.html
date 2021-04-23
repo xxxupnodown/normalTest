@@ -1,0 +1,390 @@
+<style>
+.head{
+    height:50px;
+    width:100%;
+    background-color:#393939;
+}
+/*删除按钮*/
+    .head .clear {
+        float: right;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+	.head .del{
+		float:right;
+		margin-right:10px;
+		margin-top:10px;
+	}
+	
+    .head p {
+		color : #fff;
+		text-align : center;
+	}
+	
+/*画布和工具栏*/
+.drop{
+    height:auto;
+    width:100%;
+}
+/*工具栏*/
+    .drop .left{
+        width:60px;
+        float:left;
+        height:700px;
+        background-color:#696969;
+    }
+    /*画布*/
+    .drop .right{
+        margin-left:60px;
+        width:auto;
+        height:700px;
+        border: 1px solid black;
+    }
+
+#popLayer {
+    display: none;
+    background-color: #000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    opacity: 0.6;
+}
+
+/*弹出层*/
+#popBox {
+    display: none;
+    background-color: #FFFFFF;
+    z-index: 11;
+    width: 250px;
+    height: 200px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+}
+    #popBox .content{
+        text-align: center;
+        line-height: 30px;
+    }
+    /*关闭按钮*/
+    #popBox .close {
+        text-align: right;
+        margin-right: 5px;
+        background-color: #F8F8F8;
+    }
+
+        #popBox .close a {
+            text-decoration: none;
+            color: #2D2C3B;
+        }
+    /*提交按钮*/
+    #popBox .input{
+        text-align: right;
+        margin-right: 5px;
+    }
+.svg{
+width:100%;
+height:700px; 
+xmlns :http://www.w3.org/2000/svg;
+}
+</style>
+
+<html>
+<head>
+	<title>svg</title>
+	</head>
+	<body>
+		<div class="head">
+			<p>
+				<span>竖行数量：</span>
+				<span id ="LineNumber">0</span>
+				<span>横行数量：</span>
+				<span id ="RowNumber">0</span>
+				<button class="del">删除选中</button>
+				<button class="clear">清空</button>
+			</p>
+		</div>
+		<div class="drop">
+			<div class="left">
+				<svg id="GetSize">
+					<rect id="Line" stroke="#000" rx="4" height="20" width="9" x="15" y="40"  stroke-width="1.0" fill="#fff">
+					</rect>
+					<rect id="Row" stroke="#000" rx="4" height="9" width="20" x="5" y="80" stroke-width="1.0" fill="#fff">
+					</rect>
+				</svg>
+			</div>
+			<div class="right">
+				<svg  id="svg" width="100%" height="700px">
+					<rect id="BackDrop" x="0" y="0" width="100%" height="100%" fill="none" pointer-events="all" ></rect>
+					<g id="svg_drop">
+					</g>
+					<div id="check_box" style="position: absolute; background-color: rgb(195, 213, 237); opacity: 0.6; border: 1px dashed rgb(0, 153, 255); display: none;">
+					</div>
+				</svg>
+			</div>
+		</div>
+		<div id="popLayer">
+		</div>
+		<div id="popBox">
+			<div class="close">
+				<a id="close" >
+					关闭
+				</a>
+			</div>
+			<div class="content">
+				<p>输入需要个数：</p>
+				<p><input type="text" id="SvgNumber" /></p>
+				<p>反向：<input type="checkbox" id="Reverse" /></p>
+			</div>
+			<div class="input">
+				<p><input type="button" id="input" value="生成" /></p>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="./jquery.min.js"></script>
+<script>
+var dom;
+var size=null;
+//var backDrop; bug
+var oldsvg_x;
+var oldsvg_y
+var DragTarget = null;
+var true_X;
+var true_Y;
+var start_X;
+var start_Y;
+var checkbox_select = false;
+var svg_number = null;
+var div_end_X;
+var div_end_Y;
+var div_width;
+var div_height;
+var dom_name=[];
+//自定义事件
+$.windowbox = {
+//弹出窗
+	popbox:function(event){
+		if (size != "" && size != null ){
+			document.getElementById("popBox").style.display = "block"; //把弹出框显示出来
+			document.getElementById("popLayer").style.display = "block";
+			svgX = event.offsetX;
+			svgY = event.offsetY;
+		}
+	},
+//获取图片数量
+	Number:function(){
+		var str = $('#svg_drop').html();
+		var Rlen = str.replace(/[^R]/g,'').length;
+		var Llen = str.replace(/[^L]/g,'').length;
+		svg_number = Rlen + Llen ;
+		$('#RowNumber').html(Rlen);
+		$('#LineNumber').html(Llen);
+	}
+}
+//获取点击图片ID
+$('#GetSize').click(function(event){
+	size=event.target.id;
+});
+//拖动部分事件
+$('#svg').mousedown(function(event) {
+	$.windowbox.popbox(event); //运行自定义事件
+	oldsvg_x = event.offsetX; // 获取点击X
+	oldsvg_y = event.offsetY; //获取点击Y
+	if(document.getElementById("BackDrop")!= event.target&&document.getElementById("check_box") != event.target){//用load加载的backDrop会出现bug
+		DragTarget = event.target; //锁定点击dom
+		DragTarget.setAttributeNS(null,"pointer-events","none"); //关闭事件接收
+		DragTarget.parentNode.appendChild(event.target); // 把点击图片置于顶层
+		true_X = $(DragTarget).attr("x"); //获取图片X
+		true_Y = $(DragTarget).attr("y"); //获取图片Y
+		$(DragTarget).css("fill","red"); //改变图片CSS颜色
+	}
+	else if (document.getElementById("BackDrop")==event.target&&size==null){
+		$('#check_box').attr("style", "position: absolute; background-color: rgb(195, 213, 237); opacity:0.6; border: 1px dashed rgb(0, 153, 255); display: none; ");
+		start_X = event.clientX;
+		start_Y = event.clientY;
+		checkbox_select = true;
+		$('#check_box').offset().left = start_X;
+		$('#check_box').offset().top = start_Y;
+		var str = $('#svg_drop').html();
+		var New_str = str.replace(/red/g,'black');
+		$('#svg_drop').html(New_str);
+	}
+	
+}).on("mousemove",function (event) {
+		if( DragTarget != "" && DragTarget != null){
+			var New_x = event.offsetX-oldsvg_x;
+			var New_y = event.offsetY-oldsvg_y;
+			DragTarget.setAttributeNS(null,"transform","translate("+New_x+","+New_y+")"); //赋值移动量 图片会跟鼠标动
+		}
+		else if(start_X!=""&&start_X!=null && checkbox_select == true){
+			var div_end_X = event.clientX;
+			var div_end_Y = event.clientY;
+			var r = $('#check_box');
+			r.width(Math.abs(div_end_X - start_X));
+			r.height(Math.abs(div_end_Y - start_Y));
+			r.css("display" , "block");
+			if (div_end_X < start_X && div_end_Y < start_Y) {
+				r.css("left", div_end_X);
+				r.css("top", div_end_Y);
+			}else if ( div_end_X > start_X &&div_end_Y < start_Y){
+				r.css("left", start_X);
+				r.css("top" , div_end_Y);
+			}else if ( div_end_X < start_X && div_end_Y > start_Y){
+				r.css("left", div_end_X);
+				r.css("top" , start_Y);
+			}else {
+				r.css("left" , start_X);
+				r.css("top" , start_Y);
+			}
+		}
+	}).on("mouseup" , function (event){
+			if ( DragTarget != "" && DragTarget != null ){
+				var xy = $(DragTarget).css("transform").replace(/[^0-9\-,]/g,'').slice(8).split(',');
+				var x = parseInt(true_X) + parseInt(xy[0]);
+				var y = parseInt(true_Y) + parseInt(xy[1]);
+				DragTarget.setAttributeNS(null,"transform","translate(0,0)");//把移动量清空
+				if(!isNaN(x)){
+					DragTarget.setAttributeNS(null,"x",""+x+""); //改变图片X
+					DragTarget.setAttributeNS(null,"y",""+y+"");//改变图片Y
+					DragTarget.setAttributeNS(null,"name",""+x+","+y+"");
+				}
+				DragTarget.setAttributeNS(null,"pointer-events","all"); //回复图片接收事件
+				true_X = null;
+				true_Y = null;
+			}
+			$('#check_box').css("display","none");
+			checkbox_select = false;
+			DragTarget = null;
+		});
+$("#check_box").on("mouseup",function(){
+	$('#check_box').css("display","none");
+	checkbox_select = false ; 
+	var str = $('#svg_drop').html();
+	var replace_name = str.replace(/(<rect(\r\n|\n|.)*?width="(\n|.)*?")/g,"");
+	replace_name = replace_name.replace(/(x(\r\n|\n|.)*?<\/rect>)/g,"");
+	replace_name = replace_name.replace(/name="/g,"");
+	var split_name = replace_name.split("\"");
+	var div_left;
+	var div_right;
+	var div_top;
+	var div_bottom;
+	if (div_end_X < start_X && div_end_Y < start_Y) {
+		div_left = oldsvg_x - div_width;
+		div_top = oldsvg_y - div_height;
+		div_bottom = oldsvg_y;
+		div_right = oldsvg_x;
+	}else if ( div_end_X > start_X &&div_end_Y < start_Y){
+		div_left = oldsvg_x;
+		div_top = oldsvg_y - div_height;
+		div_bottom = oldsvg_y;
+		div_right = div_left + div_width;
+	}else if ( div_end_X < start_X && div_end_Y > start_Y){
+		div_left =oldsvg_x - div_width;
+		div_right = oldsvg_x;
+		div_top = oldsvg_y;
+		div_bottom = oldsvg_y + div_height;
+	}else if ( div_end_X > start_X && div_end_Y > start_Y){
+		div_left = oldsvg_x;
+		div_top = oldsvg_y;
+		div_right = div_left + div_width;
+		div_bottom = div_top + div_height;
+	}
+	for(var i=0;i<svg_number;i++){
+		split_name[i] = split_name[i].split(",");
+		if(parseInt(split_name[i][0]) > div_left && parseInt(split_name[i][1]) >div_top && parseInt(split_name[i][0]) < div_right && parseInt(split_name[i][1]) < div_bottom){
+			dom_name[i] = document.getElementsByName(""+parseInt(split_name[i][0])+","+parseInt(split_name[i][1])+"");
+			//dom_name[0].setAttribute("style","fill:red");
+			$(dom_name[i]).css("fill","red");
+			//alert(split_name[i]+","+split_name[i][0]+"  :  "+split_name[i][1]);
+		}
+	}
+
+}).on("mousemove",function(event){
+		div_end_X = event.clientX;
+		div_end_Y = event.clientY;
+		var r = $('#check_box');
+		div_width = Math.abs(div_end_X - start_X);
+		div_height = Math.abs(div_end_Y - start_Y);
+		r.width(div_width);
+		r.height(div_height);
+		r.css("display" , "block");
+		if (div_end_X < start_X && div_end_Y < start_Y) {
+			r.css("left", div_end_X);
+			r.css("top", div_end_Y);
+		}else if ( div_end_X > start_X &&div_end_Y < start_Y){
+			r.css("left", start_X);
+			r.css("top" , div_end_Y);
+		}else if ( div_end_X < start_X && div_end_Y > start_Y){
+			r.css("left", div_end_X);
+			r.css("top" , start_Y);
+		}else {
+			r.css("left" , start_X);
+			r.css("top" , start_Y);
+		}
+	});	
+$('.del').click(function(){
+	var str = $('#svg_drop').html();
+	var del = str.replace(/red(\r\n|\n|.)*?<\/rect>/g,'');
+	$('#svg_drop').html(del);
+	$.windowbox.Number();
+});
+			
+$('.clear').click(function(){
+	$('#svg_drop').html(null);
+	$.windowbox.Number();
+});
+
+$('#input').click(function(){
+	var length = $('#SvgNumber').val();
+	var i = 0;
+	if($('#Reverse').is(':checked')){
+		if ( size == "Row" ){
+				while(i!=length){
+					var X = svgX + ( i * (-20))-20;
+					$('#svg_drop').html($('#svg_drop').html()+"<rect  style='fill:null;' id='Row' rx='4' height='9' width='20' name='"+X+","+svgY+"' x="+X+" y="+svgY+">");
+					i++;
+				}
+			}
+			else if ( size == "Line" ){
+				while(i!=length){
+					var y = svgY + ( i * (-20))-20;
+					$('#svg_drop').html($('#svg_drop').html()+"<rect style='fill:null;' id='Line' rx='4' height='20' width='9' name='"+svgX+","+y+"' x="+svgX+" y="+y+">");
+					i++;
+				}
+			}
+		}
+	else{
+		if ( size == "Row" ){
+			while(i!=length){
+				var X = svgX + ( i * 20);
+				$('#svg_drop').html($('#svg_drop').html()+"<rect style='fill:null;' id='Row' rx='4' height='9' width='20' name='"+X+","+svgY+"' x="+X+" y="+svgY+">");
+				i++;
+			}
+		}
+		else if ( size == "Line" ){
+			while(i!=length){
+				var y = svgY + ( i * 20);
+				$('#svg_drop').html($('#svg_drop').html()+"<rect style='fill:null;' id='Line' rx='4' height='20' width='9' name='"+svgX+","+y+"' x="+svgX+" y="+y+">");
+				i++;
+			}
+		}
+	}
+	size = null;
+	document.getElementById("popBox").style.display = "none";
+	document.getElementById("popLayer").style.display = "none";
+	$.windowbox.Number();
+	
+});
+
+$('#close').click(function(){
+	document.getElementById("popBox").style.display = "none";
+	document.getElementById("popLayer").style.display = "none";
+	size = null;
+});
+</script>

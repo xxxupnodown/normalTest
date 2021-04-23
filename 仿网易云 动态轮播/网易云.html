@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>163 music</title>
+
+    <style>
+        body, html, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, header, menu, section, p, input, td, th, ins{
+            margin: 0;
+            padding: 0;
+        }
+        body,button,input,select,textarea,li{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input{
+            outline:none;
+        }
+        .top{
+            height: 70px;
+            width: 100%;
+            background-color: #242424;
+            border-bottom: 1px solid #000;
+            margin:0;
+            padding: 0;
+        }
+            .top .title{
+                margin: 0 auto 0 auto;
+                position: relative;
+                width:1100px;
+                line-height: 70px;
+            }
+                .top .title img {
+                    position: absolute;
+                    height: 60px;
+                    top:5px;
+                }
+                .top .title .TTil{
+                    position: absolute;
+                    list-style: none;    
+                    padding: 0;      
+                    margin: 0;
+                    top : 0;
+                    left: 180px;
+                }
+                    .top .title .TTil li{
+                        float: left;
+                        height: 70px;
+                        color :#ccc;
+                        font-size: 15px;
+                    }
+                    .top .title .TTil li:hover{
+                        background-color: #000;
+                        cursor: pointer;
+                        color: white;
+                    }
+                        .top .title .TTil li span{
+                            padding : 18px 18px 18px 18px;
+                            height:20px;
+                        }
+                        .top .title .TTil li img{
+                            position: relative;
+                            height :10px;
+                            width:18px;
+                            top:30px;
+                            right:38%;
+                            display: none;
+                        }
+                .top .title .Tseach {
+                    position: absolute;
+                    left: 765px;
+                }
+                .top .title .Tseach input{
+                    border-radius: 30px;
+                    height:28px;
+                    width: 128px;
+                    padding-left: 30px;
+                    padding-top: 2px;
+                }
+                .top .title .Tseach input::-webkit-input-placeholder{
+                    font-size: 12px;
+                    color:#ccc;
+                }
+                .top .title .Tseach img {
+                    position: absolute;
+                    top : 25px;
+                    left: 10px;
+                    width: 22px;
+                    height: 22px;
+                    border-radius: 10px;
+                }
+            .top .title .Tcreater{
+                position: absolute;
+                top: 21px;
+                left: 940px;
+                width: 90px;
+                height: 28px;
+                border: 1px solid #4F4F4F;
+                border-radius: 30px;
+                color:#ccc;
+                font-size: 8px;
+                line-height: 28px;
+                text-align: center;
+            }
+            .top .title .Tcreater:hover{
+                border: 1px solid #fff;
+                color: #fff;
+                cursor: pointer;
+            }   
+            .top .title .Tlog{
+                color: gray;
+                font-size: 8px;
+                float: right;
+                position: absolute;
+                right: 30px;
+            }
+            .top .title .Tlog:hover{
+                cursor: pointer;
+                color: #fff;
+            }
+        .top .Tselect{
+            position: relative;
+            height:31px;
+            width:100%;
+            background-color: #C20C0C;
+            top:70px;
+            z-index: 99;
+        }
+        .top .Tnullselect{
+            position: relative;
+            height:8px;
+            width:100%;
+            background-color: #C20C0C;
+            top:70px;
+            z-index: 99;
+            display: none;
+        }
+            .top .Tselect .TScont{
+                width:1100px;
+                margin: 0 auto 0 auto;
+                text-align: center;
+                transform-origin:top;
+            }
+                .top .Tselect ul li{
+                    float: left;
+                    list-style: none;
+                    padding-left: 50px;
+                    color:white;
+                    font-size: 9px;
+                }
+                .top .Tselect ul li:nth-child(1){
+                    margin-left:100px;
+                }
+                .top .Tselect ul li span {
+                    padding:1px 15px 1px 15px;
+                    display: inline-block;
+                    height: 20px;
+                    border-radius: 20px;
+                    line-height: 20px;
+                    margin-top:4px;
+                }
+                .top .Tselect ul li span:hover{
+                    cursor: pointer;
+                    background-color: #9B0909;
+                }
+        .bodyimgDrop{
+            position: relative;
+            width:100%;
+            height:315px;
+            background-size: 40000px;
+        }
+            .bodyimgDrop .imgright:hover,.imgleft:hover{
+                background-color: rgba(128, 128, 128, 0.7);
+                cursor: pointer;
+            }
+            .bodyimgDrop .bodyimg{
+                position: relative;
+                width: 1000px;
+                height: 315px;
+                margin: 0 auto;
+                background-color: rgba(255, 255, 255, 0.05);
+                border-radius: 40%;
+            }
+                .bodyimgDrop .imgleft{
+                    position: absolute;
+                    top:130px;
+                    left:-60px;
+                    width:63px;
+                    height:63px;
+                    color:rgba(255, 255, 255, 0.7);
+                    font-size: 30px;
+                    text-align: center;
+                    line-height: 63px;
+                    border-radius: 63px;
+                }
+                .bodyimgDrop .imgright{
+                    position: absolute;
+                    top:130px;
+                    right:-60px;
+                    width:63px;
+                    height:63px;
+                    color:rgba(255, 255, 255, 0.7);
+                    font-size: 30px;
+                    text-align: center;
+                    line-height: 63px;
+                    border-radius: 63px;
+                }
+                .bodyimgDrop .bodyimg .carousel1{
+                    width:600px;
+                    height: 255px;
+                    position: absolute;
+                    top:45px;
+                    left:5px;
+                    background-size:600px 255px;
+                    box-shadow:1px 1px 20px rgba(128, 128, 128, 0.5) ;
+                }
+                .bodyimgDrop .bodyimg .carousel2{
+                    width:600px;
+                    height: 255px;
+                    position: absolute;
+                    top:45px;
+                    left:200px;
+                    background-size:600px 255px;
+                    box-shadow:1px 1px 20px rgba(128, 128, 128, 0.5) ;
+                }
+                .bodyimgDrop .bodyimg .carousel3{
+                    width:600px;
+                    height: 255px;
+                    position: absolute;
+                    top:45px;
+                    right:5px;
+                    background-size:600px 255px;
+                    box-shadow:1px 1px 20px rgba(128, 128, 128, 0.5) ;
+                }
+                .carousel1:hover,.carousel2:hover,.carousel3:hover{
+                    cursor: pointer;
+                }
+                    .bodyimgDrop .bodyimg .carousellog{
+                        width:65px;
+                        height:20px;
+                        position: relative;
+                        top:88%;
+                        left:92%;
+                        border-radius: 10px 0 0 10px;
+                        color:#fff;
+                        transform: scale(0.6);
+                        padding:4px;
+                        text-align: center;
+                    }
+                    .bodyimgDrop .bodyimg .carouselBt{
+                        position: absolute;
+                        top: 300px;
+                        left: 400px;
+                        width:150px;
+                        z-index: 44444;
+                        height:10px;
+                    }
+                            .bodyimgDrop .bodyimg .carouselBt ul li{
+                                float: left;
+                                list-style: none;
+                                width:10px;
+                                height:10px;
+                                background-color: rgba(255, 255, 255, 0.7);
+                                border-radius: 10px;
+                                margin:2.5px;
+                            }
+                            .bodyimgDrop .bodyimg .carouselBt ul li:hover{
+                                cursor: pointer;
+                            }
+            .body {
+                width:100%;
+            }
+                .body .bodyContent {
+                    width:960px;
+                    margin:0 auto;
+                    padding : 20px 20px 40px;
+                    box-shadow: 1px 1px 10px gray;  
+                    height: 1300px;
+                }
+                    .body .contentTitle{
+                        position: relative;
+                        height: 30px;
+                        width: 960px;
+                        border-bottom: 2px solid #C10D0C;
+                    }
+                        .body .bodyContent .contentTitle img {
+                            position: relative;
+                            width:20px;
+                            height:20px;
+                            top: 3px;
+                            left: 5px;
+                        }
+                        .body .bodyContent .contentTitle a {
+                            font-size: 19px;
+                            text-decoration: none;
+                            color:#333;
+                            margin-left: 5px;
+                        }
+                        .body .bodyContent .contentTitle .contentTable{
+                            position: absolute;
+                            width:280px;
+                            height: 10px;
+                            top : 5px;
+                            left : 140px;
+                        }
+                            .body .bodyContent .contentTitle .contentTable ul{
+                                list-style: none;
+                            }
+                            .body .bodyContent .contentTitle .contentTable ul li {
+                                float: left;
+                                font-size: 8px;
+                                color:rgba(128, 128, 128, 0.9);
+                                padding: 0 14px 0 14px;
+                                border-right: 0.5px solid rgba(128, 128, 128, 0.5);
+                            }
+                            .body .bodyContent .contentTitle .contentTable ul li:nth-child(5){
+                                border-right:0;
+                            }
+                            .body .bodyContent .contentTitle .contentTable ul li:hover{
+                                cursor: pointer;
+                            }
+                    .body .bodyContent .contentTitle span {
+                        float:right;
+                        font-size: 8px;
+                        margin-top:8px;
+                        margin-right:10px;
+                        color:rgba(128, 128, 128, 0.9)
+                    }
+                    .body .bodyContent .contentTitle span:hover{
+                        cursor: pointer;
+                    }
+                    .bodyContent .contentHot{
+                        width: 860px;
+                        margin: 10px auto;
+                    }
+                        .bodyContent .contentHot ul{
+                            list-style: none;
+                            height: 550px;
+                        }
+                            .bodyContent .contentHot #num1 li {
+                                float:left;
+                                width: 155px;
+                                margin: 27.5px;
+                                height:200px;
+                            }
+                                .bodyContent .contentHot ul li div{
+                                    width: 155px;
+                                    height: 165px;
+                                    background-size: 155px 165px;
+                                    margin-bottom: 10px;
+                                    box-shadow: 1px 1px 10px #333;
+                                }
+                                .bodyContent .contentHot ul li a {
+                                    text-decoration: none;
+                                    color: #000;
+                                    font-size: 13px;
+                                }
+                                .bodyContent .contentHot ul li a:hover{
+                                    text-decoration:underline ;
+                                }
+                                .bodyContent .contentHot ul li div:hover{
+                                    cursor: pointer;
+                                }
+                                .bodyContent .contentHot .new {
+                                    width: 840px;
+                                    height:60px;
+                                    position: relative;
+                                }
+                                .bodyContent .contentHot .new:nth-child(1){
+                                    margin-top: 20px;
+                                }
+                                .bodyContent .contentHot .new div:nth-child(1){
+                                    height:40px;
+                                    width:40px;
+                                    background-size: 40px 40px;
+                                    position: relative;
+                                    top :8px;
+                                }
+                                .bodyContent .contentHot .new div:nth-child(2){
+                                    position: absolute;
+                                    top: 0 ;
+                                    height:40px;
+                                    width: 750px;
+                                    left: 60px;
+                                    box-shadow: 0 0 0 #fff;
+                                    line-height: 60px;
+                                }
+                                .bodyContent .contentHot .new span:hover{
+                                    cursor: pointer;
+                                }
+                                .bodyContent .contentHot .new span{
+                                    color: rgb(126, 126, 126);
+                                    font-size:13px;
+                                }
+                                .s2 {
+                                    position: absolute;
+                                    left: 280px;
+                                    margin:15x;
+                                }
+                                .s3 {
+                                    position: absolute;
+                                    left: 430px;
+                                    margin:15x;
+                                }
+                                .s4 {
+                                    float: right;
+                                    margin-right:40px;
+                                }
+            .select{
+                width: 300px;
+                height: 400px;
+                position: absolute;
+                top: 55px;
+                border-radius: 5px;
+                background-color: #fff;
+                z-index: 999999;
+                box-shadow: 1px 1px 20px #333;
+                overflow:auto;
+                left:-20px;
+                display: none;
+            }
+            .select  div{
+                position: absolute;
+                top : -15px;
+                color: rgb(97, 97, 97);
+                font-size:15px;
+                left:10px;
+                padding: 0;
+                height:20px;
+            }
+            #hotSelect {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                position: absolute;
+                top:55px;
+                left:-10px;
+            }
+            .select li {
+                position: relative;
+                width:280px;
+                height: 50px;
+            }
+            .select li:hover{
+                background-color: rgba(192, 192, 192, 0.3);
+            }
+            #hotSelect li div:nth-child(1){
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                position: relative;
+                top:0px;
+                left:0px;
+                font-size: 16px;
+            }
+            #hotSelect li:nth-child(1) div:nth-child(1),#hotSelect li:nth-child(2) div:nth-child(1),#hotSelect li:nth-child(3) div:nth-child(1){
+                color:red;
+            }
+            #hotSelect li div:nth-child(2){
+                width: 220px;
+                height: 50px;
+                line-height: 50px;
+                position: relative;
+                top:-50px;
+                left:50px;
+                line-height: 0;
+            }
+            #hotSelect li div:nth-child(2) span:nth-child(1){
+                font-size:9px;
+                position: relative;
+                top:15px;
+                left:0px;
+            }
+            #hotSelect li div:nth-child(2) span:nth-child(2){
+                font-size: 7px;
+                position: relative;
+                top:15px;
+                left:10px;
+                color:rgba(126, 126, 126, 0.4);
+            }
+            #hotSelect li div:nth-child(2) span:nth-child(3){
+                font-size:8px;
+                float:left;
+                position: relative;
+                top : 36px;
+                color:rgba(126, 126, 126, 0.7);
+            }
+            #search .searchTitle{
+                font-size: 10px;
+                color:rgb(126, 126, 126);
+                margin-left: 10px;
+            }
+            .searchTitle span {
+                font-size: 10px;
+                color:blue;                
+            }
+            #search .searchTitle:hover{
+                cursor: pointer;
+            }
+            #search ul {
+                list-style: none;
+                position: relative;
+                left:-5px;
+                top:50px;
+                width:250px;
+            }
+            #search ul li {
+                height: 25px;
+                padding-left: 30px;
+                line-height: 25px;
+                width:250px;
+                margin-left: 5px;
+            }
+            #search .searchmusic1{
+                font-size:10px;
+                background-color: rgb(126, 126, 126,0.3);
+            }#search .searchmusic2{
+                font-size:10px;
+                background-color: rgb(126, 126, 126,0.3);
+            }#search .searchmusic3{
+                font-size:10px;
+                background-color: rgb(126, 126, 126,0.3);
+            }
+            .searchmusic4, .searchmusic5 , .searchmusic6{
+                display: none;
+            }
+            #hotSelect li div:hover{
+                cursor: pointer;
+            }
+    </style>
+    <style id="Transform">
+
+    </style>
+
+</head>
+<body>
+    <div class="top">
+        <div class="title">
+            <a href="#"><img src="images/Tlog.png" /></a>
+            <ul class="TTil">
+                <li><span>发现音乐</span><img src="images/Tselect.png" /></li>
+                <li><span>我的音乐</span><img src="images/Tselect.png" /></li>
+                <li><span>朋友</span><img src="images/Tselect.png" /></li>
+                <li><span>商城</span><img src="images/Tselect.png" /></li>
+                <li><span>音乐人</span><img src="images/Tselect.png" /></li>
+                <li><span>下载客户端</span><img src="images/Tselect.png" /></li>
+            </ul>
+            <div class="Tseach"><img src="images/seach.png" /><input type="text" placeholder="音乐/视频/电台/用户" />
+                <div class="select">
+                    <div>热搜榜:
+                        <ul id="hotSelect">
+                            <li>
+                                <div>1</div>
+                                <div>
+                                    <span>123</span><span>123</span><span>123</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>2</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>3</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>4</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>5</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>6</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>7</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>8</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>9</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>10</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>11</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>12</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>13</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>14</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>15</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>16</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>17</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>18</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>19</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                            <li>
+                                <div>20</div>
+                                <div>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="search" class="select" style="display: null;">
+                    <div class="searchTitle">
+                        搜“<span></span>”相关的结果 >
+                    </div>
+                    <div class="searchCont">
+                        <ul id="searchul">
+                            <li class="searchmusic1">单曲</li>
+                            <li class="searchmusic4"></li>
+                            <li class="searchmusic2">专辑</li>
+                            <li class="searchmusic5"></li>
+                            <li class="searchmusic3">歌单</li>
+                            <li class="searchmusic6"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="Tcreater">创作者中心</div>
+            <a href="#" class="Tlog">登录</a>
+        </div>
+        <div class="Tselect">
+            <div class="TScont">
+                <ul>
+                    <li><span>个性推荐</span></li>
+                    <li><span>排行榜</span></li>
+                    <li><span>歌单</span></li>
+                    <li><span>主播电台</span></li>
+                    <li><span>歌手</span></li>
+                    <li><span>最新音乐</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="Tnullselect"></div>
+    </div>
+
+    <div class="bodyimgDrop">
+        <div class="bodyimg">
+            <div class="imgleft"><</div>
+            <div class="imgright">></div>
+            <div class="carousel1"><div class="carousellog"></div></div>
+            <div class="carousel2"><div class="carousellog"></div></div>
+            <div class="carousel3"><div class="carousellog"></div></div>
+            <div class="carouselBt">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="body">
+        <div class="bodyContent">
+            <div class="contentTitle">
+                <img src="images/tuijian.png" />
+                <a href="#">热门推荐</a>
+                <div class="contentTable">
+                    <ul>
+                        <li>华语</li>
+                        <li>流行</li>
+                        <li>摇滚</li>
+                        <li>民谣</li>
+                        <li>电子</li>
+                    </ul>
+                </div>
+                <span>更多 -></span>
+                <div id= "select">
+
+                </div>
+            </div>
+            <div class="contentHot">
+                <ul id="num1">
+                    <li>
+                        <div></div>
+                        <a href=""></a>
+                    </li>
+                    <li>
+                        <div></div>
+                        <a href=""></a>
+                    </li>
+                    <li>
+                        <div></div>
+                        <a href=""></a>
+                    </li>
+                    <li>
+                        <div></div>
+                        <a href=""></a>
+                    </li>
+                    <li>
+                        <div></div>
+                        <a href=""></a>
+                    </li>
+                    <li>
+                        <div></div>
+                        <a href=""></a>
+                    </li>
+                    <li>
+                        <div></div>
+                        <a href=""></a>
+                    </li>
+                    <li>
+                        <div></div>
+                        <a href=""></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="contentTitle">
+                <img src="images/tuijian.png" />
+                <a href="#">最新音乐</a>
+                <span>更多 -></span>
+            </div>
+            <div class="contentHot">
+                <ul>
+                    <li class="new">
+                        <div></div>
+                        <div id="new"><a href="">123</a><span class="s1">123</span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span></div>
+                    </li>
+                    <li class="new">
+                        <div></div>
+                        <div id="new1"><a href=""></a><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span></div>
+                    </li>
+                    <li class="new">
+                        <div></div>
+                        <div id="new2"><a href=""></a><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span></div>
+                    </li>
+                    <li class="new">
+                        <div></div>
+                        <div id="new3"><a href=""></a><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span></div>
+                    </li>
+                    <li class="new">
+                        <div></div>
+                        <div id="new4"><a href=""></a><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span></div>
+                    </li>
+                    <li class="new">
+                        <div></div>
+                        <div id="new5"><a href=""></a><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span></div>
+                    </li>
+                    <li class="new">
+                        <div></div>
+                        <div id="new6"><a href=""></a><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span></div>
+                    </li>
+                    <li class="new">
+                        <div></div>
+                        <div id="new7"><a href=""></a><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span></div>
+                    </li>
+                    <li class="new">
+                        <div></div>
+                        <div id="new8"><a href=""></a><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span></div>
+                    </li>
+                    <li class="new">
+                        <div></div>
+                        <div id="new9"><a href=""></a><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="jsonserver.js"></script>
+    <script src="lunbo.js"></script>
+    <script>
+        const titleLi = document.querySelectorAll(".title>ul>li");
+        const titleLiimg = document.querySelectorAll(".title>ul>li>img");
+        const Tcont = document.querySelectorAll(".top>.Tselect>.TScont>ul>li>span");
+        const titleLispan = document.querySelectorAll(".title>ul>li>span");
+        const imgleft = document.querySelector(".imgleft");
+        const imgright = document.querySelector(".imgright");
+        const carousel1 = document.querySelector(".carousel1");
+        const carousel2 = document.querySelector(".carousel2");
+        const carousel3 = document.querySelector(".carousel3");
+        const carouselBt = document.querySelectorAll(".carouselBt>ul>li");
+        const searchInput = document.querySelector(".Tseach>input");
+        let noChangeImgList = [];
+        let imgList =[];
+        let typeList = [];
+        let imgStatus = 1;
+        searchInput.addEventListener("focus", function(){
+            if (searchInput.value == "" || searchInput.value == ""){
+                ajax({
+                    url: "hot",
+                    success: function(data){
+                        const select = document.querySelector(".select");
+                        select.style.display = "block";
+                        let responseJson = JSON.parse(data);
+                        const musicName = document.querySelectorAll("#hotSelect>li>div:nth-child(2)>span:nth-child(1)");
+                        const musicHot = document.querySelectorAll("#hotSelect>li>div:nth-child(2)>span:nth-child(2)");
+                        const musicCont = document.querySelectorAll("#hotSelect>li>div:nth-child(2)>span:nth-child(3)");
+                        for (let i = 0 ; i < musicName.length; i++){
+                            musicName[i].innerText = responseJson[i].searchWord;
+                            musicHot[i].innerText = responseJson[i].score;
+                            musicCont[i].innerText = responseJson[i].content;
+                        }
+                    },
+                    error: function(error){
+                    }
+                });
+            }else{
+
+            }
+        });
+        searchInput.addEventListener("blur", function(){
+            const select = document.querySelector(".select");
+            select.style.display = "none";
+            const search = document.querySelector("#search");
+            search.style.display = "none";
+        });
+        searchInput.addEventListener("keyup", function(){
+            
+            if (searchInput.value != ""){
+                const select = document.querySelector(".select");
+                select.style.display = "none";
+                const searchul = document.querySelector("#searchul");
+                const searchTitle = document.querySelector(".searchTitle>span");
+                searchTitle.innerText = searchInput.value;
+                const searchmusic1 = document.querySelector(".searchmusic4");
+                const searchmusic2 = document.querySelector(".searchmusic5");
+                const searchmusic3 = document.querySelector(".searchmusic6");
+                const searchCont = document.querySelector(".searchCont>ul");
+                document.querySelector("#search").style.display = "block";
+                ajax({
+                    url: "search",
+                    success: function(data){
+                        const responseJson = JSON.parse(data);
+                        if (searchul.innerText.indexOf("旅行") ==-1){
+                            if (searchInput.value.indexOf("旅行") != -1 || searchInput.value.indexOf("行") != -1 || searchInput.value.indexOf("旅") != -1 || searchInput.value.indexOf("lv") != -1 || searchInput.value.indexOf("xing") != -1){
+                                for(let i = 0; i<responseJson.songs.length; i++){
+                                    let newLi = document.createElement("li");
+                                    newLi.setAttribute("style","color:black;font-size:9px;");
+                                    newLi.innerText = `${responseJson.songs[i].name}-${responseJson.songs[i].artists[0].name}`;
+                                    searchCont.insertBefore(newLi, searchmusic1);
+                                }
+                                for(let i = 0 ; i< responseJson.artists.length ; i++){
+                                    let newLi = document.createElement("li");
+                                    newLi.setAttribute("style","color:black;font-size:9px;");
+                                    newLi.innerText = `${responseJson.artists[i].name}`;
+                                    searchCont.insertBefore(newLi, searchmusic2);
+                                }
+                                for(let i = 0 ; i< responseJson.playlists.length ; i++){
+                                    let newLi = document.createElement("li");
+                                    newLi.setAttribute("style","color:black;font-size:9px;");
+                                    newLi.innerText = `${responseJson.playlists[i].name}`;
+                                    searchCont.insertBefore(newLi, searchmusic3);
+                                }
+                            }else{
+                                const searchul = document.querySelector("#searchul");
+                                searchul.innerHTML = `
+                                    <li class="searchmusic1">单曲</li>
+                                    <li class="searchmusic4"></li>
+                                    <li class="searchmusic2">专辑</li>
+                                    <li class="searchmusic5"></li>
+                                    <li class="searchmusic3">歌单</li>
+                                    <li class="searchmusic6"></li>`;
+                            }                        
+                        }else{
+                            const searchul = document.querySelector("#searchul");
+                            searchul.innerHTML = `
+                                <li class="searchmusic1">单曲</li>
+                                <li class="searchmusic4"></li>
+                                <li class="searchmusic2">专辑</li>
+                                <li class="searchmusic5"></li>
+                                <li class="searchmusic3">歌单</li>
+                                <li class="searchmusic6"></li>`;
+                        }
+                    },
+                    error: function(error){
+                    }
+                });
+            }else{
+                const search = document.querySelector("#search");
+                search.style.display = "none";
+                const select = document.querySelector(".select");
+                select.style.display = "block";
+            }
+        });
+        imgleft.addEventListener("click", function(){
+            let myLunbo = new lunbo();
+            imgStatus = myLunbo.Left(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList, noChangeImgList, imgStatus);
+        });
+        imgright.addEventListener("click", function(){
+            // if ( rightStatus == 0){
+            //     let temList = imgList.splice(0,3);
+            //     let temList1 = typeList.splice(0,3);
+            //     for ( let j =0 ; j < temList.length ; j++){
+            //         imgList.push(temList[j]);
+            //         typeList.push(temList1[j]);
+            //     }
+            //     rightStatus = 1;
+            // }
+            let myLunbo = new lunbo();
+            imgStatus = myLunbo.Right(".carousel1",".carousel2",".carousel3","#Transform", imgList, typeList, noChangeImgList , imgStatus);
+        });
+        window.onload = function (){
+            titleLi[0].style = "background-color:black;color:#fff;";
+            Tcont[0].style = "background-color:#9B0909;";
+            titleLiimg[0].style = "display: inline;";
+            titleLispan[0].style = "padding: 18px 0 18px 18px;";
+            carouselBt[1].style = "background-color: rgba(255,255,255,1)";
+            ajax({
+				url: "banners",
+				success: function(data){
+                    let responseJson = JSON.parse(data);
+                    const bodyimgDrop = document.querySelector(".bodyimgDrop");
+                    const carousellog = document.querySelectorAll(".carousellog");
+                    // carousel1.style = `background-image:url(${responseJson[0].imageUrl})`;
+                    // carousel2.style = `background-image:url(${responseJson[1].imageUrl});transform: scale(1.1);z-index:99;`;
+                    // carousel3.style = `background-image:url(${responseJson[2].imageUrl})`;
+                    bodyimgDrop.style = `background-image:url(${responseJson[1].imageUrl});`;
+                    carousel1.style.backgroundImage = `url(${responseJson[0].imageUrl})`;
+                    carousel2.style.backgroundImage = `url(${responseJson[1].imageUrl})`;
+                    carousel2.style.transform = `scale(1.1)`;
+                    carousel2.style.zIndex = `99`;
+                    carousel3.style.backgroundImage = `url(${responseJson[2].imageUrl})`;
+                    for (let j = 0 ; j < 3 ; j++ ){
+                        carousellog[j].style = `background-color:${responseJson[j].titleColor};`;
+                        carousellog[j].innerHTML = responseJson[j].typeTitle;
+                    }
+                    for ( let i = 0; i < responseJson.length ; i++)
+                    {
+                        imgList.push(responseJson[i].imageUrl);
+                        noChangeImgList.push(responseJson[i].imageUrl);
+                        typeList.push(responseJson[i].typeTitle+","+responseJson[i].titleColor);
+                    }
+                    var imgTimer = setInterval(function(){
+                        let myLunbo = new lunbo();
+                        imgStatus = myLunbo.Right(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList,imgStatus) ;
+                        // return imgStatus;
+                    }, 4000);
+                    
+                    carousel1.addEventListener("mousemove", function(){
+                        if (carousel1.style.transform.indexOf("scale(1.1)") != -1) {
+                            clearInterval(imgTimer);
+                        }
+                    });
+                    carousel2.addEventListener("mousemove", function() {
+                        if (carousel2.style.transform.indexOf("scale(1.1)") != -1) {
+                            clearInterval(imgTimer);
+                        }
+                    });
+                    carousel3.addEventListener("mousemove", function() {
+                        if (carousel3.style.transform.indexOf("scale(1.1)") != -1) {
+                            clearInterval(imgTimer);
+                        }
+                    });
+                    carousel1.addEventListener("mouseout", function(){
+                        if (carousel1.style.transform.indexOf("scale(1.1)") != -1) {
+                            imgTimer = setInterval(function(){
+                                let myLunbo = new lunbo();
+                                imgStatus = myLunbo.Right(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList,imgStatus) ;
+                                // return imgStatus;
+                            }, 4000);
+                        }
+                    });
+                    carousel2.addEventListener("mouseout", function() {
+                        if (carousel2.style.transform.indexOf("scale(1.1)") != -1) {
+                            imgTimer = setInterval(function(){
+                                let myLunbo = new lunbo();
+                                imgStatus = myLunbo.Right(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList,imgStatus) ;
+                                // return imgStatus;
+                            }, 4000);
+                        }
+                    });
+                    // carousel3.addEventListener("mouseout", function() {
+                    //     if (carousel3.style.transform.indexOf("scale(1.1)") != -1) {
+                    //         imgTimer = setInterval(function(){
+                    //             let myLunbo = new lunbo();
+                    //             imgStatus = myLunbo.Right(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList,imgStatus) ;
+                    //             // return imgStatus;
+                    //         }, 4000);
+                    //     }
+                    // });
+                    // carousel1.addEventListener("click", function(){
+                    //     if (carousel1.style.transform.indexOf("scale(1.1)") == -1) {
+                    //         if (carousel2.style.transform.indexOf("scale(1.1)") != -1) {
+                    //             let myLunbo = new lunbo();
+                    //             imgStatus = myLunbo.Left(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList,imgStatus);
+                    //         }else{
+                    //             let myLunbo = new lunbo();
+                    //             imgStatus = myLunbo.Right(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList,imgStatus);
+                    //         }
+                    //     }
+                    // });
+                    // carousel2.addEventListener("click", function() {
+                    //     if (carousel2.style.transform.indexOf("scale(1.1)") == -1) {
+                    //         if (carousel3.style.transform.indexOf("scale(1.1)") != -1) {
+                    //             let myLunbo = new lunbo();
+                    //             imgStatus = myLunbo.Left(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList,imgStatus);
+                    //         }else{
+                    //             let myLunbo = new lunbo();
+                    //             imgStatus = myLunbo.Right(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList,imgStatus);
+                    //         }
+                    //     }
+                    // });
+                    // carousel3.addEventListener("click", function() {
+                    //     if (carousel3.style.transform.indexOf("scale(1.1)") == -1) {
+                    //         if (carousel1.style.transform.indexOf("scale(1.1)") != -1) {
+                    //             let myLunbo = new lunbo();
+                    //             imgStatus = myLunbo.Left(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList,imgStatus);
+                    //         }else{
+                    //             let myLunbo = new lunbo();
+                    //             imgStatus = myLunbo.Right(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList,imgStatus);
+                    //         }
+                    //     }
+                    // });
+				},
+				error: function(error){
+                    if (error ==""){
+                        alert("服务器未响应");
+                    }
+				}
+			});
+            ajax({
+				url: "recommend",
+				success: function(data){
+					let responseJson = JSON.parse(data);
+                    const imgDiv = document.querySelectorAll(".bodyContent>.contentHot>#num1>li>div");
+                    const imgText = document.querySelectorAll(".bodyContent>.contentHot>#num1>li>a");
+                    for (let i = 0 ; i < imgDiv.length; i++){
+                        imgDiv[i].style.backgroundImage = `url("${responseJson[i].picUrl}")`;
+                        imgText[i].innerText = responseJson[i].name;
+                    }
+				},
+				error: function(error){
+                    if (error ==""){
+                        alert("服务器未响应");
+                    }
+				}
+			});
+            ajax({
+				url: "personalized",
+				success: function(data){
+                    let responseJson = JSON.parse(data);
+                    const imgDiv = document.querySelectorAll(".new>div:nth-child(1)");
+                    const imgName = document.querySelectorAll(".new>div>a");
+                    const imgCont = document.querySelectorAll(".s1");
+                    const imgSinger = document.querySelectorAll(".s2");
+                    const imgSingerCt = document.querySelectorAll(".s3");
+                    const imgTime = document.querySelectorAll(".s4");
+                    for (let i = 0 ; i < imgDiv.length; i++){
+                        imgDiv[i].style.backgroundImage = `url("${responseJson[i].picUrl}")`;
+                        imgName[i].innerText = responseJson[i].song.name == undefined? "" : responseJson[i].song.name;
+                        imgCont[i].innerText = responseJson[i].song.alias[0]  == undefined? "" :  responseJson[i].song.alias[0] ;
+                        imgSinger[i].innerText = responseJson[i].song.artists[0].name  == undefined? "" : responseJson[i].song.artists[0].name;
+                        imgSingerCt[i].innerText = responseJson[i].song.album.name  == undefined? "" : responseJson[i].song.album.name;
+                    }
+				},
+				error: function(error){
+                    if (error ==""){
+                        alert("服务器未响应");
+                    }
+				}
+			});
+            const newLi = document.querySelectorAll(".new");
+            for (let a = 0 ; a < newLi.length ; a++)
+            {
+                a % 2 != 1? newLi[a].style.backgroundColor = "rgba(51, 51, 51, 0.1)" : null ;
+            }
+            
+        };
+        for ( let carouselBtStatus = 0 ; carouselBtStatus < carouselBt.length ; carouselBtStatus++){
+            carouselBt[carouselBtStatus].addEventListener("click", function(){
+                const carousel1 = document.querySelector(".carousel1");
+                const carousel2 = document.querySelector(".carousel2");
+                const carousel3 = document.querySelector(".carousel3");
+                if (carousel1.style.transform.indexOf("scale(1.1)") != -1){
+                    for (let i = 0 ; i < noChangeImgList.length; i++){
+                        if (carousel1.style.backgroundImage == `url("${noChangeImgList[i]}")`){
+                            if( i < carouselBtStatus){
+                                const myLunbo = new lunbo();
+                                for (let j = 0 ; j < carouselBtStatus - i ; j++){
+                                    imgStatus = myLunbo.Right(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList ,imgStatus);
+                                }
+                                return null;
+                            }else if ( i > carouselBtStatus){
+                                const myLunbo = new lunbo();
+                                for (let j = 0 ; j < i - carouselBtStatus ; j++){
+                                    imgStatus = myLunbo.Left(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList,imgStatus);
+                                }
+                                return null;
+                            }
+                        }
+                    }
+                }else if (carousel2.style.transform.indexOf("scale(1.1)") != -1){
+                    for (let i = 0 ; i < noChangeImgList.length; i++){
+                        if (carousel2.style.backgroundImage == `url("${noChangeImgList[i]}")`){
+                            if( i < carouselBtStatus){
+                                const myLunbo = new lunbo();
+                                for (let j = 0 ; j < carouselBtStatus - i ; j++){
+                                    imgStatus = myLunbo.Right(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList,imgStatus);
+                                }
+                                return null;
+                            }else if ( i > carouselBtStatus){
+                                const myLunbo = new lunbo();
+                                for (let j = 0 ; j < i - carouselBtStatus ; j++){
+                                    imgStatus = myLunbo.Left(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList,imgStatus);
+                                }
+                                return null;
+                            }
+                        }
+                    }
+                }else if (carousel3.style.transform.indexOf("scale(1.1)") != -1){
+                    for (let i = 0 ; i < noChangeImgList.length; i++){
+                        if (carousel3.style.backgroundImage == `url("${noChangeImgList[i]}")`){
+                            if( i < carouselBtStatus){
+                                const myLunbo = new lunbo();
+                                for (let j = 0 ; j < carouselBtStatus - i ; j++){
+                                    imgStatus = myLunbo.Right(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList,imgStatus);
+                                }
+                                return null;
+                            }else if ( i > carouselBtStatus){
+                                const myLunbo = new lunbo();
+                                for (let j = 0 ; j < i - carouselBtStatus ; j++){
+                                    imgStatus = myLunbo.Left(".carousel1",".carousel2",".carousel3","#Transform", imgList ,typeList,noChangeImgList,imgStatus);
+                                }
+                                return null;
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        let statusLi = 0;
+        let statusCt = 0;
+        for (let i = 0; i < titleLi.length ; i++){
+            titleLi[i].addEventListener("click", function(){
+                titleLi[statusLi].style = "";
+                titleLispan[statusLi].style = "padding: 18px 18px 18px 18px;";
+                titleLiimg[statusLi].style = "display: none;";
+                titleLi[i].style = "background-color:black;color:#fff;";
+                titleLispan[i].style = "padding: 18px 0 18px 18px;";
+                titleLiimg[i].style = "display: inline;";
+                statusLi = i;
+                if (i == 0 ){
+                    const Tselect = document.querySelector(".Tselect");
+                    const Tnullselect = document.querySelector(".Tnullselect");
+                    Tselect.style = "display:block";
+                    Tnullselect.style = "display:none";
+                }else{
+                    const Tselect = document.querySelector(".Tselect");
+                    const Tnullselect = document.querySelector(".Tnullselect");
+                    Tselect.style = "display:none";
+                    Tnullselect.style = "display:block";
+                }
+            });
+            Tcont[i].addEventListener("click", function(){
+                Tcont[statusCt].style = "";
+                Tcont[i].style = "background-color : #9B0909;";
+                statusCt = i;
+            });
+        }
+            
+        // function carouselLeft(){
+        //     const carousel1 = document.querySelector(".carousel1");
+        //     const carousel2 = document.querySelector(".carousel2");
+        //     const carousel3 = document.querySelector(".carousel3");
+        //     const Transform = document.querySelector("#Transform");
+        //     if (carousel1.style.transform.indexOf("scale(1.1)") != -1){
+        //         carousel1.style.animation = "move1 0.5s";
+        //         carousel2.style.animation = "move2 0.5s";
+        //         carousel3.style.animation = "move3 0.5s";
+        //         setTimeout(function(){carousel1.style.animation ="";carousel2.style.animation ="";carousel3.style.animation ="";},500);
+        //         Transform.innerHTML = "@keyframes move1"+
+        //         "{"+
+        //         "0% {transform:translateX(195px);z-index:5;}"+
+        //         "100%{transform:translateX(390px)}"+
+        //         "}"+
+        //         "@keyframes move2"+
+        //         "{"+
+        //         "0% {transform:translateX(195px);z-index:4;}"+
+        //         "100%{transform:translateX(-195px)}"+
+        //         "}"+
+        //         "@keyframes move3"+
+        //         "{"+
+        //         "0% {transform:translateX(-390px);z-index:99}"+
+        //         "100%{transform:translateX(-195px) scale(1.1);}"+
+        //         "}";
+        //         carousel1.style.zIndex = "5";
+        //         carousel3.style.zIndex = "99";
+        //         carousel2.style.zIndex = "5";
+        //         carousel1.style.transform = "translateX(390px)";
+        //         carousel3.style.transform = "translateX(-195px) scale(1.1)";
+        //         carousel2.style.transform = "translateX(-190px)";
+        //     }else if(carousel2.style.transform.indexOf("scale(1.1)") != -1){
+        //         carousel1.style.animation = "move1 0.5s";
+        //         carousel2.style.animation = "move2 0.5s";
+        //         carousel3.style.animation = "move3 0.5s";
+        //         setTimeout(function(){carousel1.style.animation ="";carousel2.style.animation ="";carousel3.style.animation ="";},500);
+        //         Transform.innerHTML = "@keyframes move1"+
+        //         "{"+
+        //         "0% {transform:translateX(0px);z-index:99;}"+
+        //         "100%{transform:translateX(195px) scale(1.1);}"+
+        //         "}"+
+        //         "@keyframes move2"+
+        //         "{"+
+        //         "0% {transform:translateX(0px);z-index:5;}"+
+        //         "100%{transform:translateX(195px)}"+
+        //         "}"+
+        //         "@keyframes move3"+
+        //         "{"+
+        //         "0% {transform:translateX(0px);z-index:4}"+
+        //         "100%{transform:translateX(-390px)}"+
+        //         "}";
+        //         carousel2.style.zIndex = "5";
+        //         carousel1.style.zIndex = "99";
+        //         carousel3.style.zIndex = "5";
+        //         carousel2.style.transform = "translateX(195px)";
+        //         carousel1.style.transform = "translateX(195px) scale(1.1)";
+        //         carousel3.style.transform = "translateX(-390px)";
+        //     }else if(carousel3.style.transform.indexOf("scale(1.1)") != -1){
+        //         carousel1.style.animation = "move1 0.5s";
+        //         carousel2.style.animation = "move2 0.5s";
+        //         carousel3.style.animation = "move3 0.5s";
+        //         setTimeout(function(){carousel1.style.animation ="";carousel2.style.animation ="";carousel3.style.animation ="";},500);
+        //         Transform.innerHTML = "@keyframes move1"+
+        //         "{"+
+        //         "0% {transform:translateX(390px);z-index:4;}"+
+        //         "100%{transform:translateX(0px);}"+
+        //         "}"+
+        //         "@keyframes move2"+
+        //         "{"+
+        //         "0% {transform:translateX(-195px);z-index:99;}"+
+        //         "100%{transform:translateX(0px) scale(1.1)}"+
+        //         "}"+
+        //         "@keyframes move3"+
+        //         "{"+
+        //         "0% {transform:translateX(-195px);z-index:5}"+
+        //         "100%{transform:translateX(0px)}"+
+        //         "}";
+        //         carousel3.style.zIndex = "5";
+        //         carousel2.style.zIndex = "99";
+        //         carousel1.style.zIndex = "5";
+        //         carousel3.style.transform = "translateX(0px)";
+        //         carousel2.style.transform = "translateX(0px) scale(1.1)";
+        //         carousel1.style.transform = "translateX(0px)";
+        //     }
+        // }
+        // function carouselRight(){
+        //     const carousel1 = document.querySelector(".carousel1");
+        //     const carousel2 = document.querySelector(".carousel2");
+        //     const carousel3 = document.querySelector(".carousel3");
+        //     const Transform = document.querySelector("#Transform");
+        //     if (carousel1.style.transform.indexOf("scale(1.1)") != -1){
+        //         carousel1.style.animation = "move1 0.5s";
+        //         carousel2.style.animation = "move2 0.5s";
+        //         carousel3.style.animation = "move3 0.5s";
+        //         setTimeout(function(){carousel1.style.animation ="";carousel2.style.animation ="";carousel3.style.animation ="";},500);
+        //         Transform.innerHTML = "@keyframes move1"+
+        //         "{"+
+        //         "0% {transform:translateX(195px);z-index:5;}"+
+        //         "100%{transform:translateX(0px);}"+
+        //         "}"+
+        //         "@keyframes move2"+
+        //         "{"+
+        //         "0% {transform:translateX(195px);z-index:99;}"+
+        //         "100%{transform:translateX(0px) scale(1.1)}"+
+        //         "}"+
+        //         "@keyframes move3"+
+        //         "{"+
+        //         "0% {transform:translateX(-390px);z-index:4}"+
+        //         "100%{transform:translateX(0px)}"+
+        //         "}";
+        //         carousel1.style.zIndex = "5";
+        //         carousel2.style.zIndex = "99";
+        //         carousel3.style.zIndex = "5";
+        //         carousel1.style.transform = "translateX(0px)";
+        //         carousel2.style.transform = "translateX(0px) scale(1.1)";
+        //         carousel3.style.transform = "translateX(0px)";
+        //     }else if(carousel2.style.transform.indexOf("scale(1.1)") != -1){
+        //         carousel1.style.animation = "move1 0.5s";
+        //         carousel2.style.animation = "move2 0.5s";
+        //         carousel3.style.animation = "move3 0.5s";
+        //         setTimeout(function(){carousel1.style.animation ="";carousel2.style.animation ="";carousel3.style.animation ="";},500);
+        //         Transform.innerHTML = "@keyframes move1"+
+        //         "{"+
+        //         "0% {transform:translateX(0px);z-index:5;}"+
+        //         "100%{transform:translateX(390px);}"+
+        //         "}"+
+        //         "@keyframes move2"+
+        //         "{"+
+        //         "0% {transform:translateX(0px);z-index:4;}"+
+        //         "100%{transform:translateX(-195px)}"+
+        //         "}"+
+        //         "@keyframes move3"+
+        //         "{"+
+        //         "0% {transform:translateX(0px);z-index:99}"+
+        //         "100%{transform:translateX(-195px) scale(1.1)}"+
+        //         "}";
+        //         carousel2.style.zIndex = "5";
+        //         carousel3.style.zIndex = "99";
+        //         carousel1.style.zIndex = "5";
+        //         carousel2.style.transform = "translateX(-195px)";
+        //         carousel3.style.transform = "translateX(-195px) scale(1.1)";
+        //         carousel1.style.transform = "translateX(390px)";
+        //     }else if(carousel3.style.transform.indexOf("scale(1.1)") != -1){
+        //         carousel1.style.animation = "move1 0.5s";
+        //         carousel2.style.animation = "move2 0.5s";
+        //         carousel3.style.animation = "move3 0.5s";
+        //         setTimeout(function(){carousel1.style.animation ="";carousel2.style.animation ="";carousel3.style.animation ="";},500);
+        //         Transform.innerHTML = "@keyframes move1"+
+        //         "{"+
+        //         "0% {transform:translateX(390px);z-index:99;}"+
+        //         "100%{transform:translateX(195px) scale(1.1);}"+
+        //         "}"+
+        //         "@keyframes move2"+
+        //         "{"+
+        //         "0% {transform:translateX(-195px);z-index:4;}"+
+        //         "100%{transform:translateX(195px)}"+
+        //         "}"+
+        //         "@keyframes move3"+
+        //         "{"+
+        //         "0% {transform:translateX(-195px);z-index:5}"+
+        //         "100%{transform:translateX(-390px)}"+
+        //         "}";
+        //         carousel3.style.zIndex = "5";
+        //         carousel1.style.zIndex = "99";
+        //         carousel2.style.zIndex = "5";
+        //         carousel3.style.transform = "translateX(-390px)";
+        //         carousel1.style.transform = "translateX(195px) scale(1.1)";
+        //         carousel2.style.transform = "translateX(195px)";
+        //     }
+        // }
+    </script>
+</body>
+</html>

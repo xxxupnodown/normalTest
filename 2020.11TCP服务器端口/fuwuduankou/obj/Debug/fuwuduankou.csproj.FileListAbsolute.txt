@@ -1,0 +1,10 @@
+C:\Users\Think\Desktop\fuwuduankou\fuwuduankou\bin\Debug\fuwuduankou.exe.config
+C:\Users\Think\Desktop\fuwuduankou\fuwuduankou\bin\Debug\fuwuduankou.exe
+C:\Users\Think\Desktop\fuwuduankou\fuwuduankou\bin\Debug\fuwuduankou.pdb
+C:\Users\Think\Desktop\fuwuduankou\fuwuduankou\obj\Debug\fuwuduankou.csprojAssemblyReference.cache
+C:\Users\Think\Desktop\fuwuduankou\fuwuduankou\obj\Debug\fuwuduankou.Form1.resources
+C:\Users\Think\Desktop\fuwuduankou\fuwuduankou\obj\Debug\fuwuduankou.Properties.Resources.resources
+C:\Users\Think\Desktop\fuwuduankou\fuwuduankou\obj\Debug\fuwuduankou.csproj.GenerateResource.cache
+C:\Users\Think\Desktop\fuwuduankou\fuwuduankou\obj\Debug\fuwuduankou.csproj.CoreCompileInputs.cache
+C:\Users\Think\Desktop\fuwuduankou\fuwuduankou\obj\Debug\fuwuduankou.exe
+C:\Users\Think\Desktop\fuwuduankou\fuwuduankou\obj\Debug\fuwuduankou.pdb
